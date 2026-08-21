@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Weather App</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body id="body">
+
+  <div class="app">
+    <div class="card">
+      <p class="tag">Prodigy InfoTech — Task 05</p>
+
+      <form id="searchForm" class="search-form">
+        <input type="text" id="cityInput" placeholder="Search a city..." autocomplete="off" required />
+        <button type="submit">🔍</button>
+      </form>
+
+      <button id="locateBtn" class="locate-btn">📍 Use My Location</button>
+
+      <div id="loadingMsg" class="loading hidden">Fetching weather…</div>
+      <div id="errorMsg" class="error"></div>
+
+      <div id="result" class="result hidden">
+        <div class="unit-toggle">
+          <button id="cBtn" class="unit-btn active">°C</button>
+          <button id="fBtn" class="unit-btn">°F</button>
+        </div>
+
+        <p class="place" id="place"></p>
+        <div class="icon" id="icon"></div>
+        <p class="temp" id="temp"></p>
+        <p class="condition" id="condition"></p>
+
+        <div class="stats">
+          <div class="stat"><span class="label">Humidity</span><span class="value" id="humidity"></span></div>
+          <div class="stat"><span class="label">Wind</span><span class="value" id="wind"></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

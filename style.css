@@ -1,0 +1,165 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  padding: 20px;
+  /* Default background; JS swaps this based on the weather condition */
+  background: linear-gradient(160deg, #4a90d9, #a5c9ea);
+  transition: background 0.6s ease;
+}
+
+/* Weather-driven background themes, toggled via body class from JS */
+body.sunny   { background: linear-gradient(160deg, #f6b93b, #fad390); }
+body.cloudy  { background: linear-gradient(160deg, #7f8c9a, #b2bec3); }
+body.rainy   { background: linear-gradient(160deg, #34495e, #4a6572); }
+body.snowy   { background: linear-gradient(160deg, #aebdcf, #e8eef5); }
+body.stormy  { background: linear-gradient(160deg, #2c2c40, #4a4a68); }
+
+.card {
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 24px;
+  padding: 34px 30px;
+  width: 100%;
+  max-width: 360px;
+  color: #ffffff;
+}
+
+.tag {
+  font-size: 0.65rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  opacity: 0.75;
+  margin-bottom: 18px;
+  text-align: center;
+}
+
+.search-form {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.search-form input {
+  flex: 1;
+  padding: 11px 14px;
+  border: none;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  background: rgba(255, 255, 255, 0.85);
+  color: #222;
+}
+
+.search-form input:focus { outline: none; }
+
+.search-form button {
+  background: rgba(255, 255, 255, 0.3);
+  border: none;
+  border-radius: 12px;
+  padding: 0 16px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.locate-btn {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  padding: 9px;
+  border-radius: 12px;
+  font-size: 0.82rem;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: background 0.2s ease;
+}
+
+.locate-btn:hover { background: rgba(255, 255, 255, 0.25); }
+
+.hidden { display: none !important; }
+
+.loading, .error {
+  text-align: center;
+  font-size: 0.88rem;
+}
+
+.error { color: #ffe0e0; margin-top: 6px; }
+
+/* ---------- Result ---------- */
+.result { text-align: center; }
+
+.unit-toggle {
+  display: inline-flex;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 3px;
+  margin-bottom: 18px;
+}
+
+.unit-btn {
+  border: none;
+  background: transparent;
+  color: #ffffff;
+  padding: 5px 14px;
+  border-radius: 16px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.unit-btn.active {
+  background: rgba(255, 255, 255, 0.35);
+  opacity: 1;
+}
+
+.place {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.icon { font-size: 3.2rem; margin-bottom: 6px; }
+
+.temp {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.condition {
+  font-size: 0.95rem;
+  opacity: 0.9;
+  margin-bottom: 22px;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-around;
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  padding-top: 16px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stat .label {
+  font-size: 0.7rem;
+  opacity: 0.75;
+  text-transform: uppercase;
+}
+
+.stat .value {
+  font-size: 1rem;
+  font-weight: 600;
+}
